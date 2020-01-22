@@ -1,0 +1,42 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Amsys_fotbal"
+        xmlns:Emit="clr-namespace:System.Reflection.Emit;assembly=mscorlib" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Amsys_fotbal.PlayerSelection"
+        mc:Ignorable="d"
+        Title="PlayerSelection" Height="466.5" Width="800">
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="134*"/>
+                <ColumnDefinition Width="389*"/>
+                <ColumnDefinition Width="214*"/>
+                <ColumnDefinition Width="55*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75*"/>
+                <RowDefinition Height="269*"/>
+                <RowDefinition Height="75*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Výběr hráčů" Grid.Column="1" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="30" Height="auto" FontWeight="Bold" Width="213" Grid.ColumnSpan="2"/>
+
+            <Button x:Name="ButtonAddPlayer" Content="Přidat hráče" Grid.Column="2" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200" FontFamily="Verdana" FontSize="18" Height="50" FontWeight="Bold" Click="ButtonAddPlayer_Click"/>
+            <Button x:Name="ButtonAddComputer" Content="Přidat počítač" Grid.Column="2" HorizontalAlignment="Center" Margin="7,65,7,0" Grid.Row="1" VerticalAlignment="Top" Width="200" FontFamily="Verdana" FontSize="18" Height="50" FontWeight="Bold" Click="ButtonAddComputer_Click" />
+            <Button x:Name="ButtonRemovePlayer" Content="Odebrat hráče" Grid.Column="2" HorizontalAlignment="Center" Margin="7,120,7,0" Grid.Row="1" VerticalAlignment="Top" Width="200" FontFamily="Verdana" FontSize="18" Height="50" FontWeight="Bold" Click="ButtonRemovePlayer_Click"/>
+            <Button x:Name="ButtonFinished" Content="Hotovo!" Grid.Column="2" HorizontalAlignment="Center" Margin="4,209,10,0" Grid.Row="1" VerticalAlignment="Top" Width="200" FontFamily="Verdana" FontSize="18" Height="50" FontWeight="Bold" Click="ButtonFinished_Click"/>
+            <ListBox x:Name="ListPlayers" Grid.Column="1" HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="379" FontFamily="Verdana" FontSize="20">
+
+                <System:String>test1</System:String>
+                <System:String>test2</System:String>
+                <System:String>test3</System:String>
+
+            </ListBox>
+
+
+
+        </Grid>
+    </Viewbox>
+</Window>

@@ -1,0 +1,34 @@
+﻿<Window x:Class="Amsys_fotbal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Amsys_fotbal"
+        mc:Ignorable="d"
+        
+        Title="Amsys - slovni fotbal - hlavní menu" Height="450" Width="800">
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid Height="247" Width="464">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70*"/>
+                <RowDefinition Height="54*"/>
+                <RowDefinition Height="72*"/>
+                <RowDefinition Height="51*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="ButtonNewGame" Content="Nová hra" HorizontalAlignment="Center" Margin="153,0" VerticalAlignment="Top"  FontFamily="Verdana" FontSize="24"  Click="ButtonNewGame_Click" RenderTransformOrigin="1.098,0.718" Grid.Column="1" Grid.Row="1" Height="50" Width="158" FontStretch="Expanded"/>
+
+            <Label Content="TOP hráč:" HorizontalAlignment="Center" Margin="172,5,172,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="20" FontWeight="Bold" Height="34" Width="120" Grid.Row="2" Grid.Column="1"/>
+            <Label Name="LabelTopPlayer" Content="Zatím nikdo : 0" HorizontalAlignment="Center" Margin="149,0,149,10" VerticalAlignment="Bottom" FontFamily="Verdana" FontSize="20" Height="34" Width="166" Grid.Row="2" Grid.Column="1"/>
+
+            <Button Name="ButtonQuit" Content="Ukončit" HorizontalAlignment="Center" Margin="148,0,154,10" VerticalAlignment="Bottom" Width="162" FontFamily="Verdana" FontSize="24" Height="33" Click="ButtonQuit_Click" Grid.Row="3" Grid.Column="1"/>
+            <Image Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="44" Margin="78,21,0,0" VerticalAlignment="Top" Width="299"/>
+
+
+        </Grid>
+    </Viewbox>
+</Window>

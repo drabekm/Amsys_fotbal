@@ -1,0 +1,17 @@
+﻿<Window x:Class="Amsys_fotbal.NameInputDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Amsys_fotbal"
+        mc:Ignorable="d"
+        Title="Zadej jméno" Height="200" Width="350" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="Zadej svoji přezdívku:" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0,30,0,56" Height="48" Width="324" HorizontalAlignment="Center" >
+            <TextBox x:Name="TextNameInput" HorizontalAlignment="Center" Height="48" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="324"  FontFamily="Verdana" FontSize="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  TextDecorations="{x:Null}" MaxLength="12" />
+        </Border>
+        <Button x:Name="ButtonDone" Content="Hotovo!" HorizontalAlignment="Left" Margin="82,115,0,0" VerticalAlignment="Top" Width="178" FontFamily="Verdana" FontSize="28" Height="46" Click="ButtonDone_Click"/>
+
+    </Grid>
+</Window>

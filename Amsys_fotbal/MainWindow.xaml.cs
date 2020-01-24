@@ -40,6 +40,7 @@ namespace Amsys_fotbal
 
             playerSelection.Width = this.Width;
             playerSelection.Height = this.Height;
+            playerSelection.WindowState = this.WindowState;
             playerSelection.Show();
             this.Close();
             

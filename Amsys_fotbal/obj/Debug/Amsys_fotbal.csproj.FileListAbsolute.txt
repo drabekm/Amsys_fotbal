@@ -2,11 +2,9 @@ C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\bin\Debug\Amsys_fotbal.exe
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\bin\Debug\Amsys_fotbal.exe
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\bin\Debug\Amsys_fotbal.pdb
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\Amsys_fotbal.csprojAssemblyReference.cache
-C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\MainWindow.g.cs
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\App.g.cs
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\Amsys_fotbal_MarkupCompile.cache
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\Amsys_fotbal_MarkupCompile.lref
-C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\MainWindow.baml
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\Amsys_fotbal.g.resources
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\Amsys_fotbal.Properties.Resources.resources
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\Amsys_fotbal.csproj.GenerateResource.cache
@@ -21,3 +19,5 @@ C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\NameInputDialog.
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\NameInputDialog.baml
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\GameScreen.g.cs
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\GameScreen.baml
+C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\MainWindow.g.cs
+C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\MainWindow.baml

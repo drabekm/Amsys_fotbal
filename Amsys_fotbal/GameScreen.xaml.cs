@@ -40,9 +40,18 @@ namespace Amsys_fotbal
 
         private void ButtonInput_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: DELETE, just a test
-            game.MoveToNextPlayer();
-            this.UpdateNames();
+            if(game.CheckInput(TextInput.Text))
+            {
+                game.AddCurrentPlayersPoints(TextInput.Text);
+
+                game.MoveToNextPlayer();
+                this.UpdateNames();
+            }
+            else
+            {
+                MessageBox.Show("Slovo neni ve slovniku");
+            }
+            
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Amsys_fotbal
     /// </summary>
     public partial class Settings : Window
     {
-        string dictionaryPath = "defaultDictionary";
+        string dictionaryPath = "defaultDictionary.txt";
         List<string> playerNames;
 
         public Settings(double left, double top, List<string> playerNames)
@@ -34,7 +34,7 @@ namespace Amsys_fotbal
 
         private void ButtonDefault_Click(object sender, RoutedEventArgs e)
         {
-            dictionaryPath = "defaultDictionary";
+            dictionaryPath = "defaultDictionary.txt";
         }
 
 
@@ -63,20 +63,67 @@ namespace Amsys_fotbal
             //Check if settings are set correctly
             if((bool)CheckBoxLetter.IsChecked || (bool)CheckBoxTwoLetter.IsChecked || (bool)CheckBoxSyllable.IsChecked)
             {
-                //Everything is set. Time to create a game instance and pass it to the game window
-                Game game = new Game(playerNames,
-                                     (bool)CheckBoxLetter.IsChecked,
-                                     (bool)CheckBoxTwoLetter.IsChecked,
-                                     (bool)CheckBoxSyllable.IsChecked,
-                                     (bool)RadioYes.IsChecked);
+                SortedSet<string> wordSet;
+                wordSet = MakeWordSetFromFile(dictionaryPath);
 
-                GameScreen gameScreen = new GameScreen(this.Width, this.Height, game);
-                gameScreen.Width = this.Width;
-                gameScreen.Height = this.Height;
-                gameScreen.Show();
-                this.Close();
+                if (wordSet != null) //If wordSet creation was succesful
+                {
+                    //Everything is set. Time to create a game instance and pass it to the game window
+                    Game game = new Game(playerNames,
+                                         (bool)CheckBoxLetter.IsChecked,
+                                         (bool)CheckBoxTwoLetter.IsChecked,
+                                         (bool)CheckBoxSyllable.IsChecked,
+                                         (bool)RadioYes.IsChecked,
+                                         wordSet);
+
+                    GameScreen gameScreen = new GameScreen(this.Width, this.Height, game);
+                    gameScreen.Width = this.Width;
+                    gameScreen.Height = this.Height;
+                    gameScreen.Show();
+                    this.Close();
+                }
             }
             //TODO open player screen
         }
+
+        /// <summary>
+        /// Transforms a .txt file with words separated by spaces or commas into a red-black tree.
+        /// Default game dictionary is > 20 000 words long and something optimized is needed.
+        /// </summary>
+        /// <param name="dictionaryPath">Path to a .txt file with words</param>
+        /// <returns>Wordset if succesful, null if error ocurs</returns>
+        public SortedSet<string> MakeWordSetFromFile(string dictionaryPath)
+        {
+            SortedSet<string> wordSet = new SortedSet<string>();
+            try
+            {
+                using (StreamReader sr = new StreamReader(dictionaryPath))
+                {
+                    string line;
+                    while( (line = sr.ReadLine()) != null )
+                    {
+                        //Who knows what kind of word separator is used in the word file.   
+                        // Let's remove the most common ones
+                        line.Replace(',', ' ').Replace(';', ' ').Replace('.', ' ');
+
+                        string[] words = line.Split(' ');
+                        foreach (string word in words)
+                        {
+                            wordSet.Add(word.ToLower());
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Chyba načítání slovníku!", "Chyba");
+                return null;
+            }
+
+
+            return wordSet;
+        }
     }
+
+
 }

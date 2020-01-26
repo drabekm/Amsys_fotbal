@@ -32,12 +32,20 @@ namespace Amsys_fotbal
             UpdateNames();
         }
 
+        /// <summary>
+        /// Updates the current player and next player labels
+        /// </summary>
         public void UpdateNames()
         {
             LabelCurrent.Content = game.GetCurrentPlayerInfo();
             LabelNext.Content = game.GetNextPlayerInfo();
         }
 
+        /// <summary>
+        /// Updates the help labels (last letter label and so on)
+        /// by the provided word
+        /// </summary>
+        /// <param name="word"></param>
         private void UpdateHelpLabels(string word)
         {
             this.LabelPreviousWord.Content = word;
@@ -46,14 +54,21 @@ namespace Amsys_fotbal
             this.LabelPreviousSyllable.Content = game.FindSyllable(word, false);
         }
 
+        /// <summary>
+        /// Checks players input, adds score, if next player is cpu it automaticaly makes it generate a word
+        /// and moves to next player
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonInput_Click(object sender, RoutedEventArgs e)
         {
-            if(game.CheckInput(TextInput.Text))
-            {
-                
-                game.AddCurrentPlayersPoints(TextInput.Text.ToLower());
 
-                game.MoveToNextPlayer();
+            if(game.CheckInput(TextInput.Text.ToLower()))
+            {                
+                //Adds score depending on the lenght of the word
+                game.AddCurrentPlayersPoints(TextInput.Text);
+
+                game.MoveToNextPlayer(); //Iterates players
                 this.UpdateNames();
                 this.UpdateHelpLabels(TextInput.Text);
 
@@ -70,7 +85,7 @@ namespace Amsys_fotbal
                         game.MoveToNextPlayer();
                         this.UpdateNames();
                     }
-                    else
+                    else //The guessed word is guaranteed to be correct
                     {
                         game.PreviousWord = cpuWord;
                         game.AddCurrentPlayersPoints(cpuWord.Length - 1);
@@ -120,6 +135,7 @@ namespace Amsys_fotbal
         /// <param name="e"></param>
         private void ButtonHelp_Click(object sender, RoutedEventArgs e)
         {
+            //It won't generate any help if there wasn't any previous player input
             if (this.LabelPreviousWord.Content.ToString() != "--zatím žádné--")
             {
                 foreach (string word in game.WordSet)

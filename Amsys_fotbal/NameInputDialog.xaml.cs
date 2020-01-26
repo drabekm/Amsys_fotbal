@@ -20,7 +20,7 @@ namespace Amsys_fotbal
     /// </summary>
     public partial class NameInputDialog : Window
     {
-
+        //Used to get players name 
         public NameInputDialog()
         {
             InitializeComponent();

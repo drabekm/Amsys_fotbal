@@ -25,11 +25,27 @@ namespace Amsys_fotbal
             InitializeComponent();
 
             LabelBestPlayer.Content = bestPlayer;
+            //Check if this games top player was better than the current top player
             try
             {
-                using(StreamWriter sw = new StreamWriter("bestPlayer.kopana"))
+                int storedScore = 0;
+                string playerName = bestPlayer.Split(':')[0];
+                int playerScore = int.Parse(bestPlayer.Split(':')[1]);
+
+                using (StreamReader sr = new StreamReader("bestPlayer.kopana"))
                 {
-                    sw.WriteLine(bestPlayer);
+                    string line = sr.ReadLine(); //First line is last top players name
+                    line = sr.ReadLine(); //The other one is previous top players score
+                    storedScore = int.Parse(line);
+                }
+                if (storedScore < playerScore)
+                {
+                    //If current score is bigger -> overrite the file with new information
+                    using (StreamWriter sw = new StreamWriter("bestPlayer.kopana"))
+                    {
+                        sw.WriteLine(playerName);
+                        sw.WriteLine(playerScore);
+                    }
                 }
             }
             catch
@@ -37,11 +53,11 @@ namespace Amsys_fotbal
                 //Fail silently, like a ninja
             }
 
-            foreach(string name in playerNames)
+            foreach (string name in playerNames)
             {
                 ListPlayers.Items.Add(name);
             }
-            
+
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

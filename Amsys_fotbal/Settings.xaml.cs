@@ -84,7 +84,11 @@ namespace Amsys_fotbal
                     this.Close();
                 }
             }
-            //TODO open player screen
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Musíte si vybrat aspoň jeden způsob spojování slov");
+            }
+            
         }
 
         /// <summary>

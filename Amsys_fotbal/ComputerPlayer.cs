@@ -19,14 +19,19 @@ namespace Amsys_fotbal
         }
 
         
-
+        /// <summary>
+        /// "Guesses" a word that starts with "firstLetter" from dictionary "words". 
+        /// It also handles checking if the word repeating is allowed
+        /// </summary>
+        /// <param name="firstLetter">First letter </param>
+        /// <returns>First fit word from word dictionary</returns>
         public string GuessWord(char firstLetter)
         {
             foreach (string word in words)
             {
                 if (word[0] == firstLetter)
                 {
-                    if (usedWords != null)
+                    if (usedWords != null) //If usedWords is null it means game allows repeating words
                     {
                         if (!this.usedWords.Contains(word))
                         {

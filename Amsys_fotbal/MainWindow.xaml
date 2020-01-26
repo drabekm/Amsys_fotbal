@@ -23,10 +23,10 @@
             <Button Name="ButtonNewGame" Content="Nová hra" HorizontalAlignment="Center" Margin="153,0" VerticalAlignment="Top"  FontFamily="Verdana" FontSize="24"  Click="ButtonNewGame_Click" RenderTransformOrigin="1.098,0.718" Grid.Column="1" Grid.Row="1" Height="50" Width="158" FontStretch="Expanded"/>
 
             <Label Content="TOP hráč:" HorizontalAlignment="Center" Margin="172,5,172,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="20" FontWeight="Bold" Height="34" Width="120" Grid.Row="2" Grid.Column="1"/>
-            <Label Name="LabelTopPlayer" Content="Zatím nikdo : 0" HorizontalAlignment="Center" Margin="149,0,149,10" VerticalAlignment="Bottom" FontFamily="Verdana" FontSize="20" Height="34" Width="166" Grid.Row="2" Grid.Column="1"/>
+            <Label Name="LabelTopPlayer" Content="Zatím nikdo : 0" HorizontalAlignment="Center" Margin="149,0,149,10" VerticalAlignment="Bottom" FontFamily="Verdana" FontSize="20" Height="34" Width="166" Grid.Row="2" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
             <Button Name="ButtonQuit" Content="Ukončit" HorizontalAlignment="Center" Margin="148,0,154,10" VerticalAlignment="Bottom" Width="162" FontFamily="Verdana" FontSize="24" Height="33" Click="ButtonQuit_Click" Grid.Row="3" Grid.Column="1"/>
-            <Image Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="44" Margin="78,21,0,0" VerticalAlignment="Top" Width="299"/>
+            <Image Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="55" Margin="78,10,0,0" VerticalAlignment="Top" Width="299" Source="logo.png" Stretch="UniformToFill"/>
 
 
         </Grid>

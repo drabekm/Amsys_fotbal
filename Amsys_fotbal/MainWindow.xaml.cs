@@ -28,11 +28,12 @@ namespace Amsys_fotbal
             //Updating the top player label from information stored in a bestplayer file
             try
             {
+                //If there isn't a topPlayer file yet
                 if (!File.Exists("bestPlayer.kopana"))
                 {
                     using (StreamWriter sw = new StreamWriter("bestPlayer.kopana"))
                     {
-                        sw.WriteLine("zatím nikdo: 0");
+                        sw.WriteLine("zatím nikdo");
                     }
                 }
                 else

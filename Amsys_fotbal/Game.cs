@@ -21,7 +21,7 @@ namespace Amsys_fotbal
         
 
         
-        string previousWord = ""; // word used by a previous player
+        string previousWord = ""; // word entered by a previous player
         public string PreviousWord { get { return previousWord; } set { previousWord = value; } }
 
         int playerCount;
@@ -46,11 +46,11 @@ namespace Amsys_fotbal
             this.checkTwoLetters = checkTwoLetters;
             this.checkSyllable = checkSyllable;
             this.repeatWords = repeatWords;
-
             if (!repeatWords) 
             {
                 this.UsedWordSet = new SortedSet<string>();
             }
+
             //Create players
             playerCount = playerNames.Count;
             foreach (string name in playerNames)
@@ -69,6 +69,10 @@ namespace Amsys_fotbal
             }                       
         }
 
+        /// <summary>
+        /// Returns the current player
+        /// </summary>
+        /// <returns>Current player instantce</returns>
         public Player GetCurrentPlayer()
         {
             return players[currentPlayerIndex];
@@ -78,7 +82,7 @@ namespace Amsys_fotbal
         /// <summary>
         /// Checks which players are still playing and haven't given up.
         /// </summary>
-        /// <returns>Num of active players</returns>
+        /// <returns>Count of active players</returns>
         public int ActivePlayerCount()
         {
             int activePlayers = 0;
@@ -95,7 +99,7 @@ namespace Amsys_fotbal
         /// <summary>
         /// Checks if the player input is in the provided dictionary of words
         /// </summary>
-        /// <returns></returns>
+        /// <returns>True if word passed the tests</returns>
         public bool CheckInput(string word)
         {
             bool isInputValid = false;
@@ -117,8 +121,6 @@ namespace Amsys_fotbal
             //Check last letter
             if(checkLetter && PreviousWord != "")
             {
-                char a = word[0];
-                char b = PreviousWord[PreviousWord.Length - 1];
                 if (word[0] == PreviousWord[PreviousWord.Length - 1])
                     isInputValid = true;
             }
@@ -181,7 +183,7 @@ namespace Amsys_fotbal
         public string FindSyllable(string word, bool returnFirstSyllable)
         {
             //It took me a while to figure out a simple way on how to divide words into syllables
-            //It doesn't work perfectly but it's good enough for like 70-80% of words
+            //It doesn't work perfectly but it's good enough for like 50% of words
 
             //Everything after the seccond last vowel is a last syllable
             //Everything before the first vovwel including the vowel is a first syllable

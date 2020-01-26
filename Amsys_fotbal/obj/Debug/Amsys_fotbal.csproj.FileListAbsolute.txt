@@ -21,3 +21,5 @@ C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\GameScreen.g.cs
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\GameScreen.baml
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\MainWindow.g.cs
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\MainWindow.baml
+C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\GameOverScreen.g.cs
+C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\obj\Debug\GameOverScreen.baml

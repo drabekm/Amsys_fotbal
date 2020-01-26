@@ -38,20 +38,103 @@ namespace Amsys_fotbal
             LabelNext.Content = game.GetNextPlayerInfo();
         }
 
+        private void UpdateHelpLabels(string word)
+        {
+            this.LabelPreviousWord.Content = word;
+            this.LabelPreviousLetter.Content = word[word.Length - 1];
+            this.LabelPreviousTwoLetter.Content = word[word.Length - 2].ToString() + word[word.Length - 1].ToString();
+            this.LabelPreviousSyllable.Content = game.FindSyllable(word, false);
+        }
+
         private void ButtonInput_Click(object sender, RoutedEventArgs e)
         {
             if(game.CheckInput(TextInput.Text))
             {
-                game.AddCurrentPlayersPoints(TextInput.Text);
+                
+                game.AddCurrentPlayersPoints(TextInput.Text.ToLower());
 
                 game.MoveToNextPlayer();
                 this.UpdateNames();
+                this.UpdateHelpLabels(TextInput.Text);
+
+                //If the next player is computer
+                if (game.GetCurrentPlayerInfo().StartsWith("CPU"))
+                {
+                    ComputerPlayer cpuPlayer = (ComputerPlayer)game.GetCurrentPlayer();
+                    string cpuWord = cpuPlayer.GuessWord(this.LabelPreviousLetter.Content.ToString()[0]);
+
+                    //If the word guessed by cpu is an empty string
+                    //It means it couldn't find a correct word and it gave up
+                    if (cpuWord == "")
+                    {
+                        game.MoveToNextPlayer();
+                        this.UpdateNames();
+                    }
+                    else
+                    {
+                        game.PreviousWord = cpuWord;
+                        game.AddCurrentPlayersPoints(cpuWord.Length - 1);
+                        game.MoveToNextPlayer();
+                        this.UpdateNames();
+                        this.UpdateHelpLabels(cpuWord);
+                    }
+                }
+            }
+          
+            
+        }
+
+        private void SwitchToGameOverScreen()
+        {
+            GameOverScreen gos = new GameOverScreen(game.GetPlayerNames(), game.GetBestPlayerName());
+            gos.Left = this.Left;
+            gos.Top = this.Top;
+            gos.Width = this.Width;
+            gos.Height = this.Height;
+            gos.WindowState = this.WindowState;
+
+            gos.Show();
+            this.Close();
+
+        }
+
+        private void ButtonGiveUp_Click(object sender, RoutedEventArgs e)
+        {
+            //Game can end up in gameOver state if there's no human player still playing
+            game.MakeCurrentPlayerGiveUp();
+            if(game.GameOver)
+            {
+                SwitchToGameOverScreen();
             }
             else
             {
-                MessageBox.Show("Slovo neni ve slovniku");
+                game.MoveToNextPlayer();
+                this.UpdateNames();
             }
-            
+        }
+
+        /// <summary>
+        /// Puts first 3 letter of a word a player could use in the input textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonHelp_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.LabelPreviousWord.Content.ToString() != "--zatím žádné--")
+            {
+                foreach (string word in game.WordSet)
+                {
+                    if (word[0] == (LabelPreviousLetter.Content.ToString())[0])
+                    {
+                        if (!game.UsedWordSet.Contains(word))
+                        {
+                            this.TextInput.Text = word.Substring(0, 3);
+                            game.SubtractCurrentPlayerPoints(5);
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 }

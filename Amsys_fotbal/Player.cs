@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Amsys_fotbal
 {
-    class Player
+    public class Player
     {
         public Player(string name)
         {
             this.name = name;
-
+            IsPlaying = true;
         }
 
         public void GiveUp()
@@ -20,15 +20,15 @@ namespace Amsys_fotbal
         }
 
         private string name = "";
-        public string Name { get { return name; } private set { name = value; } }
+        public string Name { get { return name; } protected set { name = value; } }
 
         private int score = 0;
         public int Score { get; set; }
 
         private bool isPlaying = true;
-        public bool IsPlaying { get; private set; }
+        public bool IsPlaying { get { return isPlaying; } protected set { isPlaying = value; } }
 
-        
-        
+
+
     }
 }

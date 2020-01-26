@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\matej\source\repos\Amsys_fotbal\Amsys_fotbal\App.xaml
-4-149408925
+61595373595
 
-11164958303
+13-402631803
 14-1290796308
-MainWindow.xaml;NameInputDialog.xaml;PlayerSelection.xaml;Settings.xaml;
+GameOverScreen.xaml;GameScreen.xaml;MainWindow.xaml;NameInputDialog.xaml;PlayerSelection.xaml;Settings.xaml;
 
 False
 

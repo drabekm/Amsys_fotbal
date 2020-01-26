@@ -6,32 +6,41 @@
         xmlns:local="clr-namespace:Amsys_fotbal"
         mc:Ignorable="d"
         Title="GameScreen" Height="450" Width="800">
-    <!-- <Viewbox StretchDirection="Both" Stretch="Uniform"> -->
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="321*"/>
-            <RowDefinition Height="87*"/>
-            <RowDefinition Height="11*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="125*"/>
-            <ColumnDefinition Width="55*"/>
-            <ColumnDefinition Width="18*"/>
-        </Grid.ColumnDefinitions>
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="321*"/>
+                <RowDefinition Height="87*"/>
+                <RowDefinition Height="11*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="125*"/>
+                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="18*"/>
+            </Grid.ColumnDefinitions>
 
-        <Label  Content="Aktuální hráč:" Grid.Column="1" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="18"/>
-        <Label Name="LabelCurrent" Content="Aktuální hráč:" Grid.Column="1" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
+            <Label  Content="Aktuální hráč:" Grid.Column="1" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="18"/>
+            <Label Name="LabelCurrent" Content="Aktuální hráč:" Grid.Column="1" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
 
-        <Label Content="Další hráč:" Grid.Column="1" HorizontalAlignment="Center" Margin="0,81,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="18"/>
-        <Label Name="LabelNext" Content="Další hráč:" Grid.Column="1" HorizontalAlignment="Center" Margin="0,104,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
+            <Label Content="Další hráč:" Grid.Column="1" HorizontalAlignment="Center" Margin="0,81,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="18"/>
+            <Label Name="LabelNext" Content="Další hráč:" Grid.Column="1" HorizontalAlignment="Center" Margin="0,104,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
 
-        <TextBox Name="TextInput" HorizontalAlignment="Left" Height="67" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="480" FontFamily="Verdana" FontSize="22" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
-        <Button Name="ButtonGiveUp" Content="Vzdát se" Grid.Column="1" HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" Width="200" FontFamily="Verdana" FontSize="22" RenderTransformOrigin="0.12,2.706" Height="71"/>
-        <Button Name="ButtonHelp" Content="Nápověda" Grid.Column="1" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Width="200" FontFamily="Verdana" FontSize="22" RenderTransformOrigin="0.12,2.706" Height="71"/>
-        <Button Name="ButtonInput" Content="Zadat slovo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontFamily="Verdana" FontSize="22" RenderTransformOrigin="0.12,2.706" Height="71" Grid.Row="1" Grid.Column="1" Click="ButtonInput_Click"/>
-        
-        
+            <TextBox Name="TextInput" HorizontalAlignment="Left" Height="67" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="480" FontFamily="Verdana" FontSize="22" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+            <Button Name="ButtonGiveUp" Content="Vzdát se" Grid.Column="1" HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" Width="200" FontFamily="Verdana" FontSize="22" RenderTransformOrigin="0.12,2.706" Height="71" Click="ButtonGiveUp_Click"/>
+            <Button Name="ButtonHelp" Content="Nápověda" Grid.Column="1" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Width="200" FontFamily="Verdana" FontSize="22" RenderTransformOrigin="0.12,2.706" Height="71" Click="ButtonHelp_Click"/>
+            <Button Name="ButtonInput" Content="Zadat slovo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontFamily="Verdana" FontSize="22" RenderTransformOrigin="0.12,2.706" Height="71" Grid.Row="1" Grid.Column="1" Click="ButtonInput_Click"/>
 
-    </Grid>
-    <!-- </Viewbox> -->
+            <Label Content="Předchozí slovo:" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
+            <Label Name="LabelPreviousWord"  Content="--zatím žádné--" HorizontalAlignment="Left" Margin="191,104,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
+
+            <Label Content="Předchozí písmeno:" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14"/>
+            <Label Name="LabelPreviousLetter" Content="--zatím žádné--" HorizontalAlignment="Left" Margin="163,170,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Foreground="#FFFF3939"/>
+
+            <Label Content="Předchozí 2 písmena:" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14"/>
+            <Label Name="LabelPreviousTwoLetter" Content="--zatím žádné--" HorizontalAlignment="Left" Margin="177,201,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Foreground="#FFFF3939"/>
+
+            <Label Content="Předchozí slabika:" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14"/>
+            <Label Name="LabelPreviousSyllable" Content="--zatím žádné--" HorizontalAlignment="Left" Margin="152,232,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Foreground="#FFFF3939"/>
+        </Grid>
+    </Viewbox>
 </Window>

@@ -53,6 +53,7 @@ namespace Amsys_fotbal
             Settings settings = new Settings(this.Left, this.Top, playerNames);
             settings.Width = this.Width;
             settings.Height = this.Height;
+            settings.WindowState = this.WindowState;
             settings.Show();
             this.Close();
         }

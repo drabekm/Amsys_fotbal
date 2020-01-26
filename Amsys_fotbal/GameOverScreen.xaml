@@ -1,0 +1,31 @@
+﻿<Window x:Class="Amsys_fotbal.GameOverScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Amsys_fotbal"
+        mc:Ignorable="d"
+        Title="GameOverScreen" Height="450" Width="800">
+
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid Margin="-2,-8,2,8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23*"/>
+                <RowDefinition Height="75*"/>
+                <RowDefinition Height="246*"/>
+                <RowDefinition Height="63*"/>
+                <RowDefinition Height="12*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Konec hry" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="auto" FontFamily="Verdana" FontSize="36" FontWeight="Bold"/>
+
+            <Label Content="Nejlepší hráč:" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" FontFamily="Verdana" FontSize="16" FontWeight="Bold"/>
+            <Label Name="LabelBestPlayer" Width="228" Content="username" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="282,36,282,0" Grid.Row="2" VerticalAlignment="Top" FontFamily="Verdana" FontSize="16"/>
+            <ListBox Name="ListPlayers" HorizontalAlignment="Center" Height="150" Margin="0,86,0,0" Grid.Row="2" VerticalAlignment="Top" Width="229" SelectionChanged="ListBox_SelectionChanged" FontFamily="Verdana" FontSize="16"/>
+
+            <Button Name="ButtonBackToMenu" Content="Zpět do menu!" HorizontalAlignment="Left" Margin="282,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="228" Height="53" FontFamily="Verdana" FontSize="20" Click="ButtonBackToMenu_Click"/>
+
+
+        </Grid>
+    </Viewbox>
+</Window>

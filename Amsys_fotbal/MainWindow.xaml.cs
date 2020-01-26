@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Amsys_fotbal
 {
@@ -23,6 +24,29 @@ namespace Amsys_fotbal
         public MainWindow()
         {
             InitializeComponent();
+
+            //Updating the top player label from information stored in a bestplayer file
+            try
+            {
+                if (!File.Exists("bestPlayer.kopana"))
+                {
+                    using (StreamWriter sw = new StreamWriter("bestPlayer.kopana"))
+                    {
+                        sw.WriteLine("zatím nikdo: 0");
+                    }
+                }
+                else
+                {
+                    using (StreamReader sr = new StreamReader("bestPlayer.kopana"))
+                    {
+                        this.LabelTopPlayer.Content = sr.ReadLine();
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Chyba vytváření souboru nejlepšího hráče. Hra může ale stále pokračovat");
+            }
         }
 
         private void ButtonQuit_Click(object sender, RoutedEventArgs e)

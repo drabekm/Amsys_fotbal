@@ -77,8 +77,9 @@ namespace Amsys_fotbal
                                          wordSet);
 
                     GameScreen gameScreen = new GameScreen(this.Width, this.Height, game);
-                    gameScreen.Width = this.Width;
-                    gameScreen.Height = this.Height;
+                    gameScreen.Left = this.Left;
+                    gameScreen.Top = this.Top;
+                    gameScreen.WindowState = this.WindowState;
                     gameScreen.Show();
                     this.Close();
                 }
